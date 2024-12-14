@@ -94,7 +94,7 @@ if uploaded_file:
                 seasonal_data = city_data[city_data['season'] == current_season]
                 seasonal_avg = seasonal_data['seasonal_avg'].iloc[0]
                 seasonal_std = seasonal_data['seasonal_std'].iloc[0]
-                is_normal = current_temp >= seasonal_avg - 2 * seasonal_std | current_temp <= seasonal_avg + 2 * seasonal_std
+                is_normal = current_temp >= seasonal_avg - 2 * seasonal_std or current_temp <= seasonal_avg + 2 * seasonal_std
 
                 st.subheader(f"Current temperature in city {selected_city}: {current_temp}C")
                 if is_normal:
